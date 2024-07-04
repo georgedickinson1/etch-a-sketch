@@ -1,4 +1,4 @@
-# etch-a-sketch
+# Etch-a-Sketch
 
 Etch-a-sketch game created using HTML, CSS & JS.
 
