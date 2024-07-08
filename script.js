@@ -5,6 +5,7 @@ const gridContainer = document.querySelector(".grid-container");
 
 for (i = 0; i < gridSize; i++) {
     const div = document.createElement("div");
+    div.className = "grid-item";
     div.style.flexBasis = `calc(${100 / userNumber}%)`;
     div.style.height = `calc(${100 / userNumber}%)`;
     gridContainer.appendChild(div);
