@@ -1,12 +1,64 @@
-let userNumber = prompt("What would you like the grid size to be?")
-let gridSize = userNumber ** 2;
+//Set Value of Grid
+const slider = document.querySelector(".slider")
+
+let sliderValue = slider.value;
+let gridSize = sliderValue ** 2;
+
 
 const gridContainer = document.querySelector(".grid-container");
 
-for (i = 0; i < gridSize; i++) {
-    const div = document.createElement("div");
-    div.className = "grid-item";
-    div.style.flexBasis = `calc(${100 / userNumber}%)`;
-    div.style.height = `calc(${100 / userNumber}%)`;
-    gridContainer.appendChild(div);
-}
+function setGrid(gridSize, sliderValue) {
+    for (i = 0; i < gridSize; i++) {
+        const div = document.createElement("div");
+        div.className = "grid-item";
+        div.style.flexBasis = `calc(${100 / sliderValue}%)`;
+        div.style.height = `calc(${100 / sliderValue}%)`;
+        gridContainer.appendChild(div);
+    }
+};
+
+
+slider.addEventListener("input", () => {
+    sliderValue = slider.value;
+    gridSize = sliderValue ** 2;
+    gridContainer.innerHTML = '';
+    setGrid(gridSize, sliderValue);
+    gridItem = document.querySelectorAll(".grid-item")
+    draw(gridItem);
+})
+
+
+setGrid(gridSize, sliderValue);
+let gridItem = document.querySelectorAll('.grid-item');
+
+// Draw Feature
+let isMouseDown = false;
+
+document.addEventListener("mousedown", () => {
+    isMouseDown = true;
+})
+
+document.addEventListener("mouseup", () => {
+    isMouseDown = false;
+})
+
+function draw(gridItem) {
+    gridItem.forEach(item => {
+        item.addEventListener("mouseenter", function() {
+            if (isMouseDown) {
+                this.classList.add("black-background");
+            }
+        });
+    });
+};
+
+draw(gridItem);
+// Clear Button
+let clear = document.querySelector(".clear");
+clear.addEventListener("click", () => {
+    gridItem.forEach(item => {
+        item.classList.remove("black-background");
+    })
+})
+
+
