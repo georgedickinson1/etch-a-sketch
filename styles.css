@@ -44,7 +44,7 @@ h1 {
 
 .controls-container {
     width: 239px;
-    height: 500px;
+    height: 250px;
     background-color: #535353;
     border-radius: 7px;
     display: flex;
@@ -93,6 +93,22 @@ h1 {
     border-radius: 30px;
     font-size: 14px;
     padding: 5px 10px 5px 10px;
+}
+
+.grid-lines {
+    background-color: #535353;
+    color: #1ED760;
+    border: solid #1ED760;
+    border-width: thin;
+    border-radius: 30px;
+    font-size: 14px;
+    padding: 5px 10px 5px 10px;
+    margin-top: -15px;
+}
+
+.grid-lines:hover {
+    background-color: #656262;
+    cursor: pointer;
 }
 
 .clear:hover {
